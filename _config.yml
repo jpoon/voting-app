@@ -1,0 +1,12 @@
+# Site settings
+title: To The Cloud!
+subtitle: An Introduction to Microsoft Azure
+description: To the Clou! An Introduction to Microsoft Azure
+
+baseurl: /voting-app
+
+# Build settings
+markdown: kramdown
+exclude: ["README.md"]
+sass:
+  style: compressed
