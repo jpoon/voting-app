@@ -14,6 +14,7 @@ The following guide shows a step-by-step process of creating a scalable web appl
 <ul>
   <li>How to build and connect end-to-end web applications and a datastore</li>
   <li>An introduction to Microsoft Azure Platform as a Service (PaaS) including Web Apps and Storage</li>
+  <li>How to deploy a Python Flask and Node.JS Express application to Azure</li>
 </ul>
 </div>
 
@@ -25,7 +26,7 @@ The voting app we'll create will allow users to vote between two options. It'll 
 
 1. **Vote Web Application**
   * Python + Flask application that allows users to vote between two options. The votes are put into an Azure Storage Queue to be processed. Here's what it looks like (feel free to vote and see the results change below):
-    <center><iframe src="https://catsvsdogs.azurewebsites.net/" allowtransparency="true" frameborder="0" scrolling="0" width="600" height="425"></iframe></center>
+    <center><iframe src="https://catsvsdogs.azurewebsites.net/" allowtransparency="true" frameborder="0" scrolling="0" width="600" height="400"></iframe></center>
 
 2. **Worker Web Job**
   * As new messages appear in the Storage Queue, the C# worker will save each message and the total vote count to Azure Table Storage.
@@ -50,7 +51,12 @@ With this tutorial, you can get away without running any of the applications loc
 
 * Python 2.7+
 * Node.JS, NPM
-* Visual Studio 2015 (C#, .NET)
+* [.NET Core](https://www.microsoft.com/net/core)
+* IDE of choice: [Visual Studio Code](https://code.visualstudio.com/), [Visual Studio 2015](https://www.visualstudio.com/vs-2015-product-editions)
+
+<br>
+![]({{ site.baseurl }}/assets/divider.png)
+<br>
 
 ## Azure Storage Account
 
@@ -60,6 +66,7 @@ A [Storage Account](https://azure.microsoft.com/documentation/articles/storage-i
 * Table Storage
 
 As users vote through the web application, each vote will be pushed to a queue whereupon it will later be processed by a worker and finally persisted into table storage. 
+
 
 ### Creating an Azure Storage Account
 To create an Azure Storage account, head on over to the [Azure portal](https://portal.azure.com) and follow [these instructions](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account).
@@ -99,9 +106,19 @@ The voter web application issues a cookie to the end-user that serves as the `vo
 6. Setup [automated code deployment](https://github.com/blog/2056-automating-code-deployment-with-github-and-azure) of the voting-app-voter repository in GitHub to the Web App. 
 7. Done. 
 
+<br>
+![]({{ site.baseurl }}/assets/divider.png)
+<br>
+
 ## Worker Web Job
 
 One feature of an Azure Web App is that you can have it run jobs at no extra cost using [Web Jobs](https://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/). We'll upload a C# webjob that will run continuously to process the Azure Storage Queue.
+
+Connection strings
+
+<br>
+![]({{ site.baseurl }}/assets/divider.png)
+<br>
 
 ## Result Web Application
 
