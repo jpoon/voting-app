@@ -1,12 +1,9 @@
 [submodule "voting-app-voter"]
 	path = voting-app-voter
 	url = git@github.com:jpoon/voting-app-voter.git
-	branch = master
 [submodule "voting-app-admin"]
 	path = voting-app-admin
 	url = git@github.com:jpoon/voting-app-admin.git
-	branch = master
 [submodule "voting-app-worker"]
 	path = voting-app-worker
 	url = git@github.com:jpoon/voting-app-worker.git
-	branch = master
